@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using kprx = K2.KPRXAnalyzer.Classes;
 
 namespace K2.KPRXAnalyzer
 {
@@ -23,6 +24,9 @@ namespace K2.KPRXAnalyzer
         public MainWindow()
         {
             InitializeComponent();
+            
+
+
         }
     }
 }
