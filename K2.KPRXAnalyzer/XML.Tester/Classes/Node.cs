@@ -8,18 +8,27 @@ using System.Xml;
 
 namespace K2.KPRXAnalyzer.Classes
 {
+    /// <summary>
+    /// Types of the process artifacts
+    /// </summary>
     public enum Artifacts
     {
         Process,
         ProcessDependency,
-        StartRule,
+        ProcessEscalation,
+        Line,
+        StartActivity,
+        Activity,
+        ActivityEscalation,
+        EventEscalation,
+
+
         FinishRule,
         EscalationRule,
-        Activity,
+        
         Event,
         LineRule
     }
-
     public abstract class Node
     {
         #region Private Properties
@@ -50,25 +59,27 @@ namespace K2.KPRXAnalyzer.Classes
         #endregion
         
         #region Methods
-        //public Node(){ }
         /// <summary>
         /// Default Constructor
         /// </summary>
-        /// <param name="xNode">XmlNode for parsing</param>
-        /// <param name="nodeType"> Type of the current class</param>
-        /// <param name="xPath">XPath to the properties</param>
-        public Node(XmlNode xNode, Artifacts nodeType, string xPathItem)
+        /// <param name="xNode"></param>
+        /// <param name="nodeType"></param>
+        public Node(XmlNode xNode, Artifacts nodeType)
         {
-            this._outerXml = xNode;
+            //Cloning the node in order not to have the parent ones
+            XmlNode xn = xNode.Clone();
+            this._outerXml = xn;
             this._type = nodeType;
-            foreach (XmlNode xn in xNode.SelectNodes(xPathItem))
-            {
-                this._name = xn["Name"].InnerText;
-                this._guid = Guid.Parse(xn["Guid"].InnerText);
-            }
+            this._name = xn["Name"].InnerText;
+            this._guid = Guid.Parse(xn["Guid"].InnerText);
+            this.ChildNodes = new List<Node>();
+            this.GetKids();
         }
-        public abstract void GetKids();
 
+        /// <summary>
+        /// Abstract method for building the tree of elements
+        /// </summary>
+        protected abstract void GetKids();
         #endregion
     }
 }

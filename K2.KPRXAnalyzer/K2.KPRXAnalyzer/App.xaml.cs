@@ -6,7 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Xml;
-using KPRX = K2.KPRXAnalyzer.Classes;
+using KPRX = K2.KPRXAnalyzer.Process;
 
 namespace K2.KPRXAnalyzer
 {
