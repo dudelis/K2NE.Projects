@@ -71,7 +71,7 @@
                             <TextBlock FontWeight="Bold">!!</TextBlock> Field names are case sensitive.
                         </TextBlock>
                         <TextBlock FontStyle="Italic" MaxWidth="400" TextWrapping="Wrap">
-                           <TextBlock FontWeight="Bold">!!!</TextBlock> If only the Process Wizard is red, check the Process Wizards.
+                           <TextBlock FontWeight="Bold">!!!</TextBlock> If only the Process Node is red, check the Process Wizards.
                         </TextBlock>
                         <TextBlock FontStyle="Italic" MaxWidth="400" TextWrapping="Wrap">
                             <TextBlock FontWeight="Bold">!!!!</TextBlock> If you want to look for XML fields, enter the full XPath <LineBreak/> (eg.'/XmlDocument/XmlField). The XML fields were not properly tested.
