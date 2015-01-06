@@ -1,0 +1,31 @@
+﻿<Window x:Class="K2.KPRXAnalyzer.wndAbout"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="About" Height="173.824" Width="300" Background="#FFF6EFEF">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0*"/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*"/>
+            <RowDefinition Height="7*"/>
+        </Grid.RowDefinitions>
+        <Button Name="btnClose" Grid.ColumnSpan="2" Content="Close" HorizontalAlignment="Left" Margin="112,11.2,0,0" Grid.Row="1" VerticalAlignment="Top" Width="75" Click="BtnClose_OnClick"/>
+        
+        <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="1" Grid.ColumnSpan="2">
+            <TextBlock HorizontalAlignment="Stretch" Margin="5" TextWrapping="Wrap" VerticalAlignment="Stretch" >
+                If you have any questions, please, contact me by email<Hyperlink NavigateUri="mailto:konstantin@k2.com" RequestNavigate="Hyperlink_OnRequestNavigate">konstantin@k2.com</Hyperlink>
+            </TextBlock>
+            <TextBlock HorizontalAlignment="Stretch" Margin="5" TextWrapping="Wrap" VerticalAlignment="Stretch" >
+                    The project itself can be found bу the following
+                <Hyperlink  NavigateUri="https://github.com/dudelis/K2NE.Projects/tree/master/K2.KPRXAnalyzer" RequestNavigate="Hyperlink_OnRequestNavigate">
+                    link
+                </Hyperlink>.
+            </TextBlock>
+        </StackPanel>
+        
+
+    </Grid>
+</Window>
