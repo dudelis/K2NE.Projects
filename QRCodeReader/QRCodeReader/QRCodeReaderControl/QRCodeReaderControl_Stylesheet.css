@@ -1,0 +1,9 @@
+﻿/*
+by default the namespace + "-" + class name is the css class of your custom control. Periods in the namespace
+are replaced with dashes 
+You could also specify a different class and set the class in the .cs file like so: this.Attributes.Add("class", "myCustomClass");
+*/
+.QRCodeReader-QRCodeReaderControl
+{
+	/* e.g. background-color: inherit; */
+}
