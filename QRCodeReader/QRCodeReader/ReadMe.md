@@ -7,4 +7,9 @@ http://www.webqr.com/index.html.
 
 The control hase 1 OnChange event, which can be used to transfer the decoded information to other datafields etc.
 
+Certainly, because the control does read the QRCode in real time, the photo you make should be of good quality and
+the QRCode must take the most of its space.
+
+Tested on PC with files from the internet and also on iPad (Safari), making photos of various QRCodes. 
+
 In general, this is it...
