@@ -1,2 +1,2 @@
-RDLFileName,ReportServerName,TargetReportFolder,ReportName
-Report.AllUsers.rdl,DLX,Uploaded,Report.AllUsers
+RDLFileName,TargetReportFolder,ReportName
+Report.AllUsers.rdl,Uploaded,Report.AllUsers
