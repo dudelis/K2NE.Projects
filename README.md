@@ -11,10 +11,9 @@ In general, this is it...
 ## K2NE.PowerShellScripts
 ### SSRS deployment
 This script deploys all reports specified in a CSV file. The structure of csv file is pretty much simple:
- - RDLFileName;
- - ReportServerName;
- - TargetReportFolder;
- - ReportName.
+ - RDLFileName (eg. MyReport.rdl);
+ - TargetReportFolder (eg. MyProjectreports);
+ - ReportName (eg. MyReportName);
 
 A deployment file is needed in a csv format, and it must be in the same directory as directory report files.
 When running the script, you can specify the following parameters:
