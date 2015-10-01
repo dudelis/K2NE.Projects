@@ -8,7 +8,8 @@
 ###################################################################################
 
 # Parameters to
-param([string]$SourceDirectory = $PSScriptRoot, [string]$DeploymentFileName = "ListOfReports.csv", [string]$ReportServerName = "localhost")
+param([string]$SourceDirectory = $PSScriptRoot, [string]$DeploymentFileName = "ListOfReports.csv", [string]$ReportServerName)
+$ReportServerName = Read-Host "Enter the SSRS name"
 Write-Host "Source Directory: $SourceDirectory"
 Write-Host "Deployment File Name: $DeploymentFileName"
 Write-Host "Report Server Name: $ReportServerName"
@@ -23,6 +24,8 @@ Import-Csv $FullDeploymentFileName | foreach {
     write-host "Deploying" $RDLFileName
     write-host " to" $_.TargetReportFolder "as" $_.ReportName
     
+	Write-Host -NoNewline "Press any key to continue . . . "
+    $null = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     $SSRSProxy = new-webserviceproxy -Uri $ReportServiceURI -Namespace SSRS.ReportingService2005 -UseDefaultCredential
     
     $Bytes = [System.IO.File]::ReadAllBytes($RDLFileName)

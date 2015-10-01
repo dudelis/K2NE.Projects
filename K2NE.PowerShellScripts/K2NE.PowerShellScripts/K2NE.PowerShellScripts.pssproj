@@ -27,11 +27,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Folder Include="DBDeployment\" />
     <Folder Include="SSRSDeployment\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="SSRSDeployment\ListOfReports.csv" />
     <Compile Include="SSRSDeployment\ReportsUpload.ps1" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DBDeployment\DACPAC_Deployment.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
