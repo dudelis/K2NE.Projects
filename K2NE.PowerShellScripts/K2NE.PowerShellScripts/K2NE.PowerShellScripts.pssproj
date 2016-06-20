@@ -28,14 +28,21 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="DBDeployment\" />
+    <Folder Include="DLL\" />
+    <Folder Include="K2Scripts\" />
     <Folder Include="SSRSDeployment\" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DLL\Microsoft.SqlServer.Dac.dll" />
+    <Compile Include="DLL\Microsoft.SqlServer.Dac.Extensions.dll" />
+    <Compile Include="K2Scripts\UpdateProcInstDataFields.ps1" />
+    <Compile Include="Settings.config.xml" />
     <Compile Include="SSRSDeployment\ListOfReports.csv" />
     <Compile Include="SSRSDeployment\ReportsUpload.ps1" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="DBDeployment\DACPAC_Deployment.ps1" />
+    <Content Include="FullDeployment.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
