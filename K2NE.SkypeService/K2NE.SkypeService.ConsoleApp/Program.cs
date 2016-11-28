@@ -21,7 +21,9 @@ namespace K2NE.SkypeService.ConsoleApp
         static void Main(string[] args)
         {
             const string _autodiscoverUrl = "https://lyncdiscover.k2.com/";
+            Console.WriteLine("Enter your login:");
             string login = Console.ReadLine();
+            Console.WriteLine("Enter your password:");
             string pass = Console.ReadLine();
             Uri restUrl;
 
@@ -102,7 +104,7 @@ namespace K2NE.SkypeService.ConsoleApp
             autodiscoveryResponse3 = JsonConvert.DeserializeObject<AutodiscoveryResponse>(json3);
             reader3.Close();
 
-            //Step 5 - Getting the url to applications
+            //Step 5 - Registerring the application
             var applicationSettings = new Dictionary<string, string>()
             {
                 {"UserAgent", "UCWA Samples"},
@@ -133,7 +135,7 @@ namespace K2NE.SkypeService.ConsoleApp
             applications = JsonConvert.DeserializeObject<ApplicationsResponse>(json4);
             reader4.Close();
 
-            //Starting a messaging
+            //Step 6 - Starting a messaging
 
             var req5Body = new Dictionary<string, string>()
             {
@@ -171,7 +173,7 @@ namespace K2NE.SkypeService.ConsoleApp
             var eventResponse6 = new EventResponse();
             string relativeUrl = applications._links["events"].Href;
 
-          
+          //Step 7 - Checking the meeting status.
                 var req6 = (HttpWebRequest)System.Net.WebRequest.Create(restUrl.Scheme + "://" + restUrl.Authority + relativeUrl);
                 req6.Accept = "application/json";
                 req6.Headers["Authorization"] = oauthToken.Token_type + " " + oauthToken.Access_token;
@@ -187,7 +189,7 @@ namespace K2NE.SkypeService.ConsoleApp
 
             
 
-            //Getting Meeting status
+            //Step 8 - Getting Conversation
             var req7 = (HttpWebRequest)System.Net.WebRequest.Create(restUrl.Scheme + "://" + restUrl.Authority + eventResponse6.Sender[1].Href);
             req7.Accept = "application/json";
             req7.Headers["Authorization"] = oauthToken.Token_type + " " + oauthToken.Access_token;
@@ -201,7 +203,7 @@ namespace K2NE.SkypeService.ConsoleApp
             reader7.Close();
 
 
-            //Getting Messaging data
+            //Step 9 - Getting Messaging data
             var req8 = (HttpWebRequest)System.Net.WebRequest.Create(restUrl.Scheme + "://" + restUrl.Authority + conversation7._links["messaging"].Href);
             req8.Accept = "application/json";
             req8.Headers["Authorization"] = oauthToken.Token_type + " " + oauthToken.Access_token;
@@ -214,7 +216,7 @@ namespace K2NE.SkypeService.ConsoleApp
             mResponse8 = JsonConvert.DeserializeObject<MessagingResponse>(json8);
             reader8.Close();
 
-            //Sending a message
+            //Step 10 - Sending a message
             string req9Body = "Wazzzzz UUUUUP? You are supposed to receive this message. If yes, then I will go home:)";
             var req9 = (HttpWebRequest)WebRequest.Create(restUrl.Scheme + "://" + restUrl.Authority + mResponse8._links["sendMessage"].Href);
             req9.Accept = "application/json";
