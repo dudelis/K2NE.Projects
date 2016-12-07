@@ -30,6 +30,7 @@
     <Folder Include="DBDeployment\" />
     <Folder Include="DLL\" />
     <Folder Include="K2Scripts\" />
+    <Folder Include="Zabbix\" />
     <Folder Include="SSRSDeployment\" />
   </ItemGroup>
   <ItemGroup>
@@ -43,6 +44,15 @@
   <ItemGroup>
     <Content Include="DBDeployment\DACPAC_Deployment.ps1" />
     <Content Include="FullDeployment.ps1" />
+    <Content Include="Zabbix\ADUM.ps1" />
+    <Content Include="Zabbix\EventLog_Errors.ps1" />
+    <Content Include="Zabbix\EventLog_Warnings.ps1" />
+    <Content Include="Zabbix\GetEnvironmentFields.ps1" />
+    <Content Include="Zabbix\GetLicences.ps1" />
+    <Content Include="Zabbix\K2_GetOutdatedIdentities.ps1" />
+    <Content Include="Zabbix\MSMQ_GetNumberOfQueues.ps1" />
+    <Content Include="Zabbix\ProcessesErrorState.ps1" />
+    <Content Include="Zabbix\StateSizes.ps1" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Target Name="Build" />
